@@ -291,7 +291,7 @@ bandit12@melinda:/tmp/arp$ cat data8
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
 
-password for bandit 12 is **"8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL"**
+password for bandit 13 is **"8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL"**
 
 
 
@@ -299,15 +299,55 @@ password for bandit 12 is **"8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL"**
 Open a SSH session to bandit.labs.overthewire.org using putty.
 Use the user name as **"bandit13"** and the above password **8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL** 
 
+```
+bandit13@melinda:~$ ls
+sshkey.private
+bandit13@melinda:~$ man ssh
+bandit13@melinda:~$ ssh sshkey.privat bandit14@localhost
+ssh: Could not resolve hostname sshkey.privat: Name or service not known
+bandit13@melinda:~$ man ssh
+bandit13@melinda:~$ ssh -i sshkey.private bandit14@localhost
+Could not create directory '/home/bandit13/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is 05:3a:1c:25:35:0a:ed:2f:cd:87:1c:f6:fe:69:e4:f6.
+Are you sure you want to continue connecting (yes/no)? yes
+```
+This will log to the bandit14 through secure shell.
+
+```
+bandit14@melinda:~$ ls
+bandit14@melinda:~$ cat  /etc/bandit_pass/bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+bandit14@melinda:~$
+```
+
+password for bandit 14 is **"4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e"**
+
 
 ## Bandit 14 to 15
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit14"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit14"** and the above password **4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e** 
+
+```
+bandit14@melinda:~$ man nc
+bandit14@melinda:~$ echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc -v localhost 30000
+Connection to localhost 30000 port [tcp/*] succeeded!
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+bandit14@melinda:~$
+```
+
+password for bandit 15 is **"BfMYroe26WYalil77FoDi9qh59eK5xNr"**
 
 
 ## Bandit 15 to 16
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit15"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit15"** and the above password **BfMYroe26WYalil77FoDi9qh59eK5xNr** 
+
+```
+
+```
 
 
 ## Bandit 16 to 17
