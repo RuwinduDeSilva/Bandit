@@ -359,7 +359,7 @@ read:errno=0
 bandit15@melinda:~$
 ```
 
-password for bandit 15 is **"cluFn7wTiGryunymYOu4RcffSxQluehd"**
+password for bandit 16 is **"cluFn7wTiGryunymYOu4RcffSxQluehd"**
 
 
 ## Bandit 16 to 17
@@ -407,6 +407,16 @@ Are you sure you want to continue connecting (yes/no)? yes
 .
 .
 .
+bandit17@melinda:~$
+```  
+Now we are in the bandit17
+
+
+## Bandit 17 to 18
+This continues with the bandit 16 to 17.  
+Enter following commands...
+
+```
 bandit17@melinda:~$ ls
 passwords.new  passwords.old
 bandit17@melinda:~$ diff passwords.new passwords.old
@@ -416,60 +426,232 @@ bandit17@melinda:~$ diff passwords.new passwords.old
 > BS8bqB1kqkinKJjuxL6k072Qq9NRwQpR
 ```
 
-password for bandit 15 is **"kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd"**
+password for bandit 18 is **"kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd"**
 
-
-## Bandit 17 to 18
-Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit17"** and the above password **kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd**  
-
-```
-
-```
 
 
 ## Bandit 18 to 19
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit218"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit218"** and the above password **kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd**   
+This will close the terminal bt prompting **"Byebye!"**  
+connect to the bandit18 by using following command...
 
+```
+ssh -t bandit18@bandit.labs.overthewire.org /bin/sh
+```
+password is **kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd** 
+
+```
+ls
+cat readme
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+```
+password for bandit 19 is **"IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x"**
 
 ## Bandit 19 to 20
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit19"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit19"** and the above password **IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x** 
+
+```
+bandit19@melinda:~$ ls
+bandit20-do
+bandit19@melinda:~$ ll
+total 28
+drwxr-xr-x   2 root     root     4096 Nov 14  2014 ./
+drwxr-xr-x 167 root     root     4096 Jul  9 16:27 ../
+-rw-r--r--   1 root     root      220 Apr  9  2014 .bash_logout
+-rw-r--r--   1 root     root     3637 Apr  9  2014 .bashrc
+-rw-r--r--   1 root     root      675 Apr  9  2014 .profile
+-rwsr-x---   1 bandit20 bandit19 7370 Nov 14  2014 bandit20-do*
+bandit19@melinda:~$ ./bandit20-do --help
+Usage: env [OPTION]... [-] [NAME=VALUE]... [COMMAND [ARG]...]
+Set each NAME to VALUE in the environment and run COMMAND.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -i, --ignore-environment  start with an empty environment
+  -0, --null           end each output line with 0 byte rather than newline
+  -u, --unset=NAME     remove variable from the environment
+      --help     display this help and exit
+      --version  output version information and exit
+
+A mere - implies -i.  If no COMMAND, print the resulting environment.
+
+Report env bugs to bug-coreutils@gnu.org
+GNU coreutils home page: <http://www.gnu.org/software/coreutils/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+Report env translation bugs to <http://translationproject.org/team/>
+For complete documentation, run: info coreutils 'env invocation'
+bandit19@melinda:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+```
+password for bandit 20 is **"GbKksEFF4yrVs6il55v6gwY5aVje5f0j"**
 
 
 ## Bandit 20 to 21
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit20"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit20"** and the above password **GbKksEFF4yrVs6il55v6gwY5aVje5f0j** 
 
+```
+bandit20@melinda:~$ ls
+suconnect
+bandit20@melinda:~$ ./suconnect
+Usage: ./suconnect <portnumber>
+This program will connect to the given port on localhost using TCP. If it receives the correct password from the other side, the next password is transmitted back.
+bandit20@melinda:~$ nc -l 32123 < /etc/bandit_pass/bandit20
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+bandit20@melinda:~$
+```  
+Then start another ssh session and enter the following commands...
+```
+bandit20@melinda:~$ ./suconnect 32123
+Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+Password matches, sending next password
+bandit20@melinda:~$
+```
+password for bandit 21 is **"gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr"**
 
 ## Bandit 21 to 22
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit21"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit21"** and the above password **gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr** 
+```
+bandit21@melinda:~$ cd /etc/cron.d
+bandit21@melinda:/etc/cron.d$ ls
+behemoth4_cleanup      leviathan5_cleanup     natas25_cleanup~  semtex0-ppc
+cron-apt               manpage3_resetpw_job   natas26_cleanup   semtex5
+cronjob_bandit22       melinda-stats          natas27_cleanup   sysstat
+cronjob_bandit23       natas-session-toucher  php5              vortex0
+cronjob_bandit24       natas-stats            semtex0-32        vortex20
+cronjob_bandit24_root  natas25_cleanup        semtex0-64
+bandit21@melinda:/etc/cron.d$ cat cronjob_bandit22
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$  cat /usr/bin/cronjob_bandit22.sh
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$
+bandit21@melinda:/etc/cron.d$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+bandit21@melinda:/etc/cron.d$
+```
+password for bandit 22 is **"Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI"**
 
 
 ## Bandit 22 to 23
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit22"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit22"** and the above password **Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI** 
+```
+bandit22@melinda:~$ cd /etc/cron.d/
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$ ls
+behemoth4_cleanup      leviathan5_cleanup     natas25_cleanup~  semtex0-ppc
+cron-apt               manpage3_resetpw_job   natas26_cleanup   semtex5
+cronjob_bandit22       melinda-stats          natas27_cleanup   sysstat
+cronjob_bandit23       natas-session-toucher  php5              vortex0
+cronjob_bandit24       natas-stats            semtex0-32        vortex20
+cronjob_bandit24_root  natas25_cleanup        semtex0-64
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$  cat cronjob_bandit23
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$ cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$  /usr/bin/cronjob_bandit23.sh
+Copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f9157          3b38db3
+bandit22@melinda:/etc/cron.d$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1          8ca319486bfbbc3663ea0fbe81326349
+bandit22@melinda:/etc/cron.d$
+bandit22@melinda:/etc/cron.d$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+bandit22@melinda:/etc/cron.d$
+```
+password for bandit 23 is **"jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n"**
 
 
 ## Bandit 23 to 24
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit23"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit23"** and the above password **jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n** 
+```
+
+bandit23@melinda:~$ cd /etc/cron.d
+bandit23@melinda:/etc/cron.d$ ls
+behemoth4_cleanup      leviathan5_cleanup     natas25_cleanup~  semtex0-ppc
+cron-apt               manpage3_resetpw_job   natas26_cleanup   semtex5
+cronjob_bandit22       melinda-stats          natas27_cleanup   sysstat
+cronjob_bandit23       natas-session-toucher  php5              vortex0
+cronjob_bandit24       natas-stats            semtex0-32        vortex20
+cronjob_bandit24_root  natas25_cleanup        semtex0-64
+bandit23@melinda:/etc/cron.d$ cat cronjob_bandit24
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+bandit23@melinda:/etc/cron.d$ cat /usr/bin/cronjob_bandit24.sh
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        timeout -s 9 60 "./$i"
+        rm -f "./$i"
+    fi
+done
+
+
+bandit23@melinda:/etc/cron.d$ mkdir -p /tmp/level24
+bandit23@melinda:/etc/cron.d$ cd /tmp/level24
+bandit23@melinda:/tmp/level24$ vim sp.sh
+bandit23@melinda:/tmp/level24$ chmod 777 sp.sh
+bandit23@melinda:/tmp/level24$ cp sp.sh /var/spool/bandit24/
+bandit23@melinda:/tmp/level24$ ls
+bandit24  ok  sp.sh
+bandit23@melinda:/tmp/level24$ cat bandit24
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+```
+password for bandit 24 is **"UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ"**
 
 
 ## Bandit 24 to 25
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit24"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit24"** and the above password **UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ**   
+  
+  Create following script to make a bruteforce...
+```
+#!/bin/bash
+passwd="UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ"
 
-
-## Bandit 25 to 26
-Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit25"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
-
-
-## Bandit 26 to 27
-Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit26"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
-
+for a in {0..9}{0..9}{0..9}{0..9}
+do
+    echo $passwd' '$a | nc localhost 30002 >> result &
+done
+```  
+Enter following commands
+```
+$ sort result | uniq -u
+Correct!
+The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+```  
+password for bandit 25 is **"uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG"**
 
