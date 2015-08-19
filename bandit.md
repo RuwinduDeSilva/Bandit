@@ -1,3 +1,6 @@
+**Name** - Ruwindu De Silva  
+**SLIIT ID** - IT12044528  
+**Curtin ID** - 18297188  
 ## Bandit 0 to 1
   
 Open a SSH session to bandit.labs.overthewire.org using putty.  
