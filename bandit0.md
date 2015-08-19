@@ -346,18 +346,86 @@ Open a SSH session to bandit.labs.overthewire.org using putty.
 Use the user name as **"bandit15"** and the above password **BfMYroe26WYalil77FoDi9qh59eK5xNr** 
 
 ```
+bandit15@melinda:~$ man openssl
+bandit15@melinda:~$ echo BfMYroe26WYalil77FoDi9qh59eK5xNr | openssl s_client -quiet -connect localhost:30001depth=0 CN = li190-250.members.linode.com
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = li190-250.members.linode.com
+verify return:1
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
 
+read:errno=0
+bandit15@melinda:~$
 ```
+
+password for bandit 15 is **"cluFn7wTiGryunymYOu4RcffSxQluehd"**
 
 
 ## Bandit 16 to 17
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit16"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit16"** and the above password **cluFn7wTiGryunymYOu4RcffSxQluehd**
+
+Find the listening ports.
+```
+bandit16@melinda:~$ nmap -p 31000-32000 localhost
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2015-08-19 18:20 UTC
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0014s latency).
+Not shown: 996 closed ports
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31518/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds
+```
+Find correct port among other listening ports
+```
+bandit16@melinda:~$ echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790
+depth=0 CN = li190-250.members.linode.com
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = li190-250.members.linode.com
+verify return:1
+Correct!
+```
+Get the password
+```
+bandit16@melinda:~$ mkdir -p /tmp/key/
+bandit16@melinda:~$ cd /tmp/key
+bandit16@melinda:/tmp/key$ touch sshkey.private
+bandit16@melinda:/tmp/key$ vim sshkey.private
+bandit16@melinda:/tmp/key$ ssh -i ./sshkey.private bandit17@localhost
+Could not create directory '/home/bandit16/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is 05:3a:1c:25:35:0a:ed:2f:cd:87:1c:f6:fe:69:e4:f6.
+Are you sure you want to continue connecting (yes/no)? yes
+.
+.
+.
+bandit17@melinda:~$ ls
+passwords.new  passwords.old
+bandit17@melinda:~$ diff passwords.new passwords.old
+42c42
+< kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+---
+> BS8bqB1kqkinKJjuxL6k072Qq9NRwQpR
+```
+
+password for bandit 15 is **"kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd"**
 
 
 ## Bandit 17 to 18
 Open a SSH session to bandit.labs.overthewire.org using putty.
-Use the user name as **"bandit17"** and the above password **UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK** 
+Use the user name as **"bandit17"** and the above password **kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd**  
+
+```
+
+```
 
 
 ## Bandit 18 to 19
