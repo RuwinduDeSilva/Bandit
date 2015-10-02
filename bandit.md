@@ -1,6 +1,7 @@
 **Name** - Ruwindu De Silva  
 **SLIIT ID** - IT12044528  
-**Curtin ID** - 18297188  
+**Curtin ID** - 18297188
+
 ## Bandit 0 to 1
   
 Open a SSH session to bandit.labs.overthewire.org using putty.  
@@ -11,6 +12,7 @@ bandit0@melinda:~$ ls
 readme
 bandit0@melinda:~$ cat readme
 ```
+cat command display the contend of the relevent file (readme).
 readme file has the password to bandit1 and it is
 ```
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1
@@ -41,6 +43,7 @@ spaces in this filename
 bandit2@melinda:~$ cat spaces\ in\ this\ filename
 UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
 ```
+in cat command if there is a space we have to seperate each word from a forward slash (\)
 password for bandit 3 is **"UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK"**
 
 ## Bandit 3 to 4
@@ -59,7 +62,9 @@ bandit3@melinda:~/inhere$ cat ./.hidden
 pIwrPrtPN36QITSp3EQaw936yaFoFgAB
 bandit3@melinda:~/inhere$
 ```
-
+using "cd" go to the relevent derectory (inhere).
+Hidden file does not visible to ls (list) command, because of thet we have to use "ls -a" (list all)
+To retrieve the contend of .hidden file we have to provide cat command with aditional "./"
 password for bandit 4 is **"pIwrPrtPN36QITSp3EQaw936yaFoFgAB"**  
 
 
@@ -87,6 +92,7 @@ bandit4@melinda:~/inhere$ cat ./-file01
 bandit4@melinda:~/inhere$ cat ./-file07
 koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 ```
+"ls -h" outputs all the human readable files in the derectory.
 -file07 contains the password for the next level.
 
 password for bandit 5 is **"koReBOKuIDDepwhWk7jZC0RTdopnAYKh"**
@@ -110,6 +116,10 @@ bandit5@melinda:~/inhere$ find -readable -size 1033c ! -executable
 bandit5@melinda:~/inhere$ cat ./maybehere07/.file2
 DXjZPULLxYr17uwoI01bNLQbtFemEgo7
 ```
+Since we don't know what is the correct file we can use "find" command to find the file using given hints.
+"-readable"= human readable
+"-size <size inbytes>"= file size
+"! -executable"= not executable
 password for bandit 6 is **"DXjZPULLxYr17uwoI01bNLQbtFemEgo7"**
 
 
@@ -127,7 +137,8 @@ find: `/proc/29160/fdinfo/5': No such file or directory
 bandit6@melinda:/$ cat /var/lib/dpkg/info/bandit7.password
 HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
 ```
-
+Here also the find command has use to find the path of the relevent file.
+specify the user use the "-user" command and for the group "-group"
 password for bandit 7 is **"HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs"**
 
 
@@ -141,7 +152,7 @@ data.txt
 bandit7@melinda:~$ grep -e 'millionth' data.txt
 millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV
 ```
-
+"grep" command use to find a paticular word using a phrace.
 password for bandit 8 is **"cvX2JJa4CFALtqS87jk27qwqGhBM9plV"**
 
 
@@ -155,7 +166,8 @@ data.txt
 bandit8@melinda:~$ sort data.txt | uniq -u
 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
 ```
-
+Using sort command we sort the contend of the file in a way that we want.
+"uniq -u" use to sort non-reapeted text.
 password for bandit 9 is **"UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR"**
 
 ## Bandit 9 to 10
@@ -184,6 +196,7 @@ f=C(
 ie)=5e
 bandit9@melinda:~$
 ```
+using strings command we retrieve all the strings and using grep "=" we retrieve only lines starting from "="
 password for bandit 10 is **"truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk"**
 
 
@@ -198,6 +211,7 @@ bandit10@melinda:~$ base64 -d data.txt
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 bandit10@melinda:~$
 ```
+here we decode the base64 encoded file to retrieve the password.
 password for bandit 11 is **"IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR"**
 
 
@@ -212,7 +226,7 @@ bandit11@melinda:~$ cat data.txt | tr a-zA-Z n-za-mN-ZA-M
 The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 bandit11@melinda:~$
 ```
-
+Here we rotat all lower case and upper case letters from 13 positions.
 password for bandit 12 is **"5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu"**
 
 
@@ -293,7 +307,7 @@ bandit12@melinda:/tmp/arp$ cat data8
 
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
-
+Here we extract repeatedly compressed to retrieve the password.
 password for bandit 13 is **"8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL"**
 
 
@@ -315,6 +329,7 @@ The authenticity of host 'localhost (127.0.0.1)' can't be established.
 ECDSA key fingerprint is 05:3a:1c:25:35:0a:ed:2f:cd:87:1c:f6:fe:69:e4:f6.
 Are you sure you want to continue connecting (yes/no)? yes
 ```
+we are makeing a ssh connection to the bandit 14.
 This will log to the bandit14 through secure shell.
 
 ```
@@ -340,7 +355,7 @@ BfMYroe26WYalil77FoDi9qh59eK5xNr
 
 bandit14@melinda:~$
 ```
-
+Here we passes the password of this level to port 30000.
 password for bandit 15 is **"BfMYroe26WYalil77FoDi9qh59eK5xNr"**
 
 
@@ -361,7 +376,7 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 read:errno=0
 bandit15@melinda:~$
 ```
-
+Here we have pass the password of the curret level to the port 30001 using SSL encryption.
 password for bandit 16 is **"cluFn7wTiGryunymYOu4RcffSxQluehd"**
 
 
@@ -386,6 +401,8 @@ PORT      STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 0.09 seconds
 ```
+Here we have find the listening ports in the range of 31000-32000.
+
 Find correct port among other listening ports
 ```
 bandit16@melinda:~$ echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31790
@@ -396,6 +413,7 @@ depth=0 CN = li190-250.members.linode.com
 verify return:1
 Correct!
 ```
+Here we have passes the current level password and see if it uses the SSL encryption.
 Get the password
 ```
 bandit16@melinda:~$ mkdir -p /tmp/key/
@@ -434,10 +452,10 @@ password for bandit 18 is **"kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd"**
 
 
 ## Bandit 18 to 19
-Open a SSH session to bandit.labs.overthewire.org using putty.
+Open a SSH session to bandit.labs.overthewire.org.
 Use the user name as **"bandit218"** and the above password **kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd**   
 This will close the terminal bt prompting **"Byebye!"**  
-connect to the bandit18 by using following command...
+connect to the bandit18 by using following command using linux ssh session
 
 ```
 ssh -t bandit18@bandit.labs.overthewire.org /bin/sh
@@ -487,6 +505,8 @@ For complete documentation, run: info coreutils 'env invocation'
 bandit19@melinda:~$ ./bandit20-do cat /etc/bandit_pass/bandit20
 GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 ```
+To retrieve the password for the next level we have use setuid binary.That we can retrieve the password from /etc/bandit_pass/bandit20
+
 password for bandit 20 is **"GbKksEFF4yrVs6il55v6gwY5aVje5f0j"**
 
 
@@ -511,6 +531,7 @@ Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 Password matches, sending next password
 bandit20@melinda:~$
 ```
+Here we make a connection to the localhost using the port number 32123. and it transmit the password of the next level.
 password for bandit 21 is **"gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr"**
 
 ## Bandit 21 to 22
